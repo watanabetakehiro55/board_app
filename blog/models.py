@@ -7,9 +7,6 @@ class SnsModel(models.Model):
   content = models.TextField()
   author = models.CharField(max_length=50)
   snsimage = models.ImageField(upload_to='')
-  good = models.IntegerField()
-  read = models.IntegerField()
-  readtext = models.TextField()
-
-  def __str__(self) -> str:
-    return self.title
+  good = models.IntegerField(null=True,blank=True,default=1)
+  read = models.IntegerField(null=True,blank=True,default=1)
+  readtext = models.TextField(null=True,blank=True,default='a')

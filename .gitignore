@@ -1,3 +1,6 @@
 db.sqlite3
 media
 .vscode
+blog/__pycache__
+blog/migrations
+sns_blog/__pycache__/

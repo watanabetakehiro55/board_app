@@ -4,8 +4,10 @@ from django.contrib.auth.models import User
 from django.db import IntegrityError
 from django.contrib.auth import authenticate, login,logout
 from django.shortcuts import redirect
+from django.urls import reverse_lazy
 from .models import *
 from django.contrib.auth.decorators import login_required
+from django.views.generic import CreateView
 
 # Create your views here.
 
@@ -66,3 +68,10 @@ def readfunc(request, pk):
     object.readtext += ' ' + username
     object.save()
     return redirect('list')
+
+
+class SnsCreate(CreateView):
+  template_name = 'create.html'
+  model = SnsModel
+  fields = ['title', 'content', 'author', 'snsimage']
+  success_url = reverse_lazy('list')

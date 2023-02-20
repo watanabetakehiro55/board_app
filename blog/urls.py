@@ -6,6 +6,7 @@ from .views import *
 
 
 urlpatterns = [
+    path('', loginfunc),
     path('signup/', signupfunc, name = 'signup'),
     path('login/', loginfunc, name = 'login'),
     path('logout/', logoutfunc, name = 'logout'),
@@ -13,4 +14,5 @@ urlpatterns = [
     path('detail/<int:pk>', detailfunc, name ='detail'),
     path('good/<int:pk>', goodfunc, name='good'),
     path('read/<int:pk>', readfunc, name ='read'),
+    path('create/', SnsCreate.as_view(), name='create'),
 ] 
